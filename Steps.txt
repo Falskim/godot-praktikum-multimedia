@@ -1,0 +1,7 @@
+1. Project
+   - Assets
+   - Project Settings (Resolusi (320x240) + 2D + keep)
+2. Player
+   - Sprite
+   - Animation
+   - Movement

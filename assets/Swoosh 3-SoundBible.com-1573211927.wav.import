@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Swoosh 3-SoundBible.com-1573211927.wav-ce72b715dd3063b17eadd4132e194061.sample"
+
+[deps]
+
+source_file="res://assets/Swoosh 3-SoundBible.com-1573211927.wav"
+dest_files=[ "res://.import/Swoosh 3-SoundBible.com-1573211927.wav-ce72b715dd3063b17eadd4132e194061.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

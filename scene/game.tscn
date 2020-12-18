@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scene/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/0x72_16x16DungeonTileset.v4.png" type="Texture" id=2]
+[ext_resource path="res://scene/enemy.tscn" type="PackedScene" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 1, 88, 62, 53 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 311, 15 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 15, 264.452 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 10, 10 )
+texture = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Border" type="RigidBody2D" parent="."]
+collision_layer = 4
+collision_mask = 3
+mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border"]
+position = Vector2( 0, -250.309 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Border"]
+position = Vector2( 0, 250.309 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Border"]
+position = Vector2( 294.085, -4.57764e-05 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Border"]
+position = Vector2( -295.208, -4.57764e-05 )
+shape = SubResource( 3 )
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Enemy" parent="Node" instance=ExtResource( 3 )]
+position = Vector2( 96.5187, 17.176 )
+
+[node name="Enemy2" parent="Node" instance=ExtResource( 3 )]
+position = Vector2( -27.4813, 29.676 )
+
+[node name="Enemy5" parent="Node" instance=ExtResource( 3 )]
+position = Vector2( -58.4813, -27.324 )
+
+[node name="Enemy6" parent="Node" instance=ExtResource( 3 )]
+position = Vector2( -15.9813, -60.824 )
+
+[node name="Enemy3" parent="Node" instance=ExtResource( 3 )]
+position = Vector2( 28.5187, -87.824 )
+
+[node name="Enemy4" parent="Node" instance=ExtResource( 3 )]
+position = Vector2( 39.0187, 42.176 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
