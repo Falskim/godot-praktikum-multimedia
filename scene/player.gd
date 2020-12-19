@@ -1,18 +1,7 @@
 extends KinematicBody2D
 
-class_name Player
 
 signal take_damage
-
-export var Enable_Camera = true
-
-onready var camera = $Camera2D
-onready var sprite = $Sprite
-onready var sword = $Sprite/Position2D/Sword
-
-enum State {MOVE, IDLE}
-
-const MOVE_SPEED = 1.5
 
 export var ACCELERATION = 500
 export var MAX_SPEED = 100
@@ -23,13 +12,12 @@ var velocity = Vector2.ZERO
 
 
 func _ready():
-	camera.current = Enable_Camera
 	$CollisionShape2D.disabled = false
 
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_select"):
-		sword.attack()
+		 $Sprite/Position2D/Sword.attack()
 
 
 func _physics_process(delta):
@@ -50,6 +38,7 @@ func _physics_process(delta):
 	else:
 		$AnimationMovement.stop()
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+		
 	var collision = move_and_collide(velocity * delta)
 	if collision:
 		var collider = collision.collider

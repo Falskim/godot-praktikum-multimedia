@@ -41,9 +41,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 4, 4 ), Vector2( 0, 0 ) ]
 }
 
-[node name="Sword" type="StaticBody2D" groups=[
-"Weapon",
-]]
+[node name="Sword" type="StaticBody2D"]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource( 2 )

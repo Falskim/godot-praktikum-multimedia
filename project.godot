@@ -8,20 +8,9 @@
 
 config_version=4
 
-_global_script_classes=[ {
-"base": "KinematicBody2D",
-"class": "Player",
-"language": "GDScript",
-"path": "res://scene/player.gd"
-}, {
-"base": "StaticBody2D",
-"class": "Weapon",
-"language": "GDScript",
-"path": "res://scene/sword.gd"
-} ]
+_global_script_classes=[  ]
 _global_script_class_icons={
-"Player": "",
-"Weapon": ""
+
 }
 
 [application]

@@ -1,20 +1,19 @@
 extends CanvasLayer
 
 
-func _ready():
-	$GameOver.visible = false
-
-
 func update_hp(hp):
 	$ProgressBar.value = hp
 
 
 func update_score(score):
-	$HBoxContainer/CurrentScore.text = str(score)
+	$Score.text = "Score : " + str(score)
 
 
 func display_game_over():
 	$GameOver.visible = true
+	$Score.visible = false
+	$ProgressBar.visible = false
+	$GameOver/GameOverScore.text = $Score.text 
 
 
 func _on_Button_pressed():

@@ -1,7 +1,34 @@
-1. Project
-   - Assets
-   - Project Settings (Resolusi (320x240) + 2D + keep)
-2. Player
-   - Sprite
-   - Animation
-   - Movement
+1.Project
+	-Assets
+	-Project Settings (Resolusi (320x240) + 2D + keep)
+2.Player
+	-Sprite
+	-Animation
+	-Movement
+	-Camera
+	-Weapon
+4.World
+	-Background
+	-Player Camera Limit
+	-Border
+5.Enemy
+	-Sprite
+	-Behaviour
+	-Animation
+	-Collision
+	-DeadState
+	-Randomize Enemy Spawn
+6.GUI
+	-Font
+	-Signal
+	-HP
+	-Score
+	-GameoverScene
+	-Restart
+
+Assets
+-Sprite:https://0x72.itch.io/16x16-dungeon-tileset
+-Hit:http://soundbible.com/1952-Punch-Or-Whack.html
+-Hit2: soundbible.com/2069-Realistic-Punch.html
+-Swosh:http://soundbible.com/706-Swoosh-3.html
+-Font:https://www.dafont.com/pixeled.font
