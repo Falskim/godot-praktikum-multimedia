@@ -14,13 +14,13 @@
 #	- Behaviour
 #	- Collision
 #   - Dead State
+#	- Randomize Enemy Spawn
 #4. GUI
 #   - Font
 #   - HP
 #   - Score
 #	- Gameover Scene
 #   - Restart
-
 
 #Asset
 #Hit : http://soundbible.com/1952-Punch-Or-Whack.html
