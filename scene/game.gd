@@ -17,3 +17,5 @@ func _on_Enemy_killed():
 func _on_Player_take_damage():
 	PLAYER_HP -= 1
 	$GUI.update_hp(PLAYER_HP)
+	if PLAYER_HP <= 0:
+		$GUI.display_game_over()
