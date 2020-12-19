@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 onready var sprite = $Sprite
 
+signal enemy_killed
+
 enum State {MOVE, IDLE, DEAD}
 
 const MOVE_SPEED = 1.5
@@ -43,10 +45,6 @@ func state_to_idle():
 	current_state = State.IDLE
 	$AnimationPlayer.stop()
 	input_vector = Vector2.ZERO
-	
-
-func take_damage():
-	queue_free()
 
 
 func _ready():
@@ -84,4 +82,7 @@ func _on_Timer_timeout():
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "dead":
+		var current_scene = get_tree().get_current_scene()
+		connect("enemy_killed", current_scene, "_on_Enemy_killed")
+		emit_signal("enemy_killed")
 		queue_free()

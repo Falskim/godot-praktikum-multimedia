@@ -13,9 +13,14 @@
 #4. Enemy
 #	- Behaviour
 #	- Collision
+#   - Dead State
 #4. GUI
+#   - Font
+#   - HP
+#   - Score
 
 
 #Asset
 #Hit : http://soundbible.com/1952-Punch-Or-Whack.html
 #Swosh : http://soundbible.com/706-Swoosh-3.html
+#font : https://www.dafont.com/pixeled.font

@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 class_name Player
 
+signal take_damage
+
 export var Enable_Camera = true
 
 onready var camera = $Camera2D
@@ -55,3 +57,4 @@ func _physics_process(delta):
 			velocity = (position - collider.position).normalized() * DAMAGED_KNOCKBACK
 			$AudioDamaged.play()
 			$AnimationDamaged.play("take_damage")
+			emit_signal("take_damage")
