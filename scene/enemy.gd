@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 onready var sprite = $Sprite
 
-enum State {MOVE, IDLE}
+enum State {MOVE, IDLE, DEAD}
 
 const MOVE_SPEED = 1.5
 
@@ -45,6 +45,10 @@ func state_to_idle():
 	input_vector = Vector2.ZERO
 	
 
+func take_damage():
+	queue_free()
+
+
 func _ready():
 	randomize()
 	start_state_timer()
@@ -55,18 +59,29 @@ func _ready():
 
 
 func _physics_process(delta):
-	if current_state == State.IDLE:
+	if current_state == State.DEAD:
+		set_physics_process(false)
+		$AudioDamaged.play()
+		$AnimationPlayer.play("dead")
+		return
+	elif current_state == State.IDLE:
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 	else:
 		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
-	velocity = move_and_slide(velocity)
+	
+	var collision = move_and_collide(velocity * delta)
+	if collision and collision.collider.is_in_group("Weapon"):
+		current_state = State.DEAD
 
 
 func _on_Timer_timeout():
 	if current_state == State.MOVE:
 		state_to_idle()
-		print("Idling")
 	elif current_state == State.IDLE:
 		state_to_move()
-		print("Move")
 	start_state_timer()
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "dead":
+		queue_free()

@@ -15,11 +15,14 @@ const MOVE_SPEED = 1.5
 export var ACCELERATION = 500
 export var MAX_SPEED = 100
 export var FRICTION = 500
+export var DAMAGED_KNOCKBACK = 150
+
 var velocity = Vector2.ZERO
 
 
 func _ready():
 	camera.current = Enable_Camera
+	$CollisionShape2D.disabled = false
 
 
 func _process(delta):
@@ -40,10 +43,15 @@ func _physics_process(delta):
 		elif input_vector.x < 0:
 			$Sprite.scale.x = -1
 
-		$AnimationPlayer.play("shake")
+		$AnimationMovement.play("shake")
 		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
 	else:
-		$AnimationPlayer.stop()
+		$AnimationMovement.stop()
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
-	velocity = move_and_slide(velocity)
-
+	var collision = move_and_collide(velocity * delta)
+	if collision:
+		var collider = collision.collider
+		if collider.is_in_group("Enemies"):
+			velocity = (position - collider.position).normalized() * DAMAGED_KNOCKBACK
+			$AudioDamaged.play()
+			$AnimationDamaged.play("take_damage")

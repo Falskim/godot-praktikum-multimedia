@@ -14,3 +14,8 @@
 #	- Behaviour
 #	- Collision
 #4. GUI
+
+
+#Asset
+#Hit : http://soundbible.com/1952-Punch-Or-Whack.html
+#Swosh : http://soundbible.com/706-Swoosh-3.html
