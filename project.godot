@@ -15,8 +15,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Prototype Praktikum"
-run/main_scene="res://scene/game.tscn"
+config/name="Dunge"
+run/main_scene="res://scene/title.tscn"
 config/icon="res://icon.png"
 
 [display]
