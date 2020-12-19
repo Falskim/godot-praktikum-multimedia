@@ -13,7 +13,7 @@ func _ready():
 	$GUI.update_score(SCORE)
 	
 	# spawn enemies
-	for i in range(MAX_ENEMY):
+	for qi in range(MAX_ENEMY):
 		_spawn_enemy()
 
 

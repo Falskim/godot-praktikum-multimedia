@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/0x72_16x16DungeonTileset.v4.png" type="Texture" id=1]
 [ext_resource path="res://scene/title.gd" type="Script" id=2]
@@ -11,6 +11,10 @@ region = Rect2( 1, 88, 62, 53 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 20
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 4
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=3]
@@ -29,20 +33,31 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="."]
 margin_left = -109.353
-margin_top = -82.252
+margin_top = -101.554
 margin_right = 138.647
-margin_bottom = -26.252
+margin_bottom = -45.5543
 custom_fonts/font = SubResource( 2 )
 text = "Dungeon Arena"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label2" type="Label" parent="."]
+margin_left = -144.291
+margin_top = 94.7443
+margin_right = 39.7088
+margin_bottom = 112.744
+custom_fonts/font = SubResource( 4 )
+text = "Created By : Fawwaz Syiham Muyassar (1177050044)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Button" type="Button" parent="."]
-margin_left = -58.7268
-margin_top = 18.1047
-margin_right = 69.2732
-margin_bottom = 70.1047
+margin_left = -61.2073
+margin_top = -12.5547
+margin_right = 66.7927
+margin_bottom = 39.4453
 custom_fonts/font = SubResource( 3 )
 text = "Play"
 __meta__ = {
