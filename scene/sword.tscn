@@ -3,61 +3,113 @@
 [ext_resource path="res://assets/0x72_16x16DungeonTileset.v4.png" type="Texture" id=1]
 [ext_resource path="res://scene/sword.gd" type="Script" id=2]
 [ext_resource path="res://assets/Swoosh 3-SoundBible.com-1573211927.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/42-425182_sword-slash-effect-png.png" type="Texture" id=4]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 179, 9, 10, 22 )
 
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 2.3271
-height = 11.2237
-
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "attack"
-length = 0.6
+length = 0.5
+step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/path = NodePath("Sprite:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.6 ),
+"times": PoolRealArray( 0, 0.05, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ 0.0, 90.0, 0.0 ]
+"values": [ 0.0, 120.0, 0.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:position")
+tracks/1/path = NodePath("Slash:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2, 0.6 ),
+"times": PoolRealArray( 0, 0.15, 0.35, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.501961 ), Color( 1, 1, 1, 0.235294 ), Color( 1, 1, 1, 0.0392157 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Slash:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15, 0.45 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 4, 4 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 3, -0.811 ), Vector2( 7, -0.811 ), Vector2( 10, -0.811 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Slash:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.45 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.05, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 5, 5 ), Vector2( 0, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CollisionPolygon2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
-[node name="Sword" type="StaticBody2D"]
-collision_layer = 0
+[node name="Sword" type="Area2D"]
 collision_mask = 2
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = SubResource( 1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
+[node name="Slash" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 3, -0.811 )
+rotation = -2.26893
+scale = Vector2( 0.030204, 0.030204 )
+texture = ExtResource( 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( -0.176777, 0 )
+polygon = PoolVector2Array( -0.317116, -14.368, 0.389992, 17.275, 11.8805, 12.1485, 16.6535, 4.19357, 16.1231, -2.34717, 12.234, -9.41824, 6.75395, -14.7215, 0.743546, -17.1964, -0.67067, -17.7267 )
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/attack = SubResource( 3 )
+anims/attack = SubResource( 2 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
+[connection signal="body_entered" from="." to="." method="_on_Sword_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

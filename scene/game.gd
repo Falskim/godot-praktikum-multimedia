@@ -36,3 +36,7 @@ func _on_Player_take_damage():
 func _spawn_enemy():
 	var enemy = ENEMY_SCENE.instance()
 	add_child(enemy)
+
+
+func _on_Player_stamina_changed(current_stamina):
+	$GUI.update_stamina(current_stamina)

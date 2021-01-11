@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Winds Of Stories.ogg-f883ae1756f350909a0ef573eeaf0cb2.oggstr"
+
+[deps]
+
+source_file="res://assets/Winds Of Stories.ogg"
+dest_files=[ "res://.import/Winds Of Stories.ogg-f883ae1756f350909a0ef573eeaf0cb2.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -54,4 +54,5 @@ shape = SubResource( 3 )
 z_index = 1
 
 [node name="GUI" parent="." instance=ExtResource( 4 )]
+[connection signal="stamina_changed" from="Player" to="." method="_on_Player_stamina_changed"]
 [connection signal="take_damage" from="Player" to="." method="_on_Player_take_damage"]

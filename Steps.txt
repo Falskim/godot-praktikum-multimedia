@@ -35,3 +35,17 @@ Assets
 -Hit2: soundbible.com/2069-Realistic-Punch.html
 -Swosh:http://soundbible.com/706-Swoosh-3.html
 -Font:https://www.dafont.com/pixeled.font
+
+--------------------------------------------
+UAS
+	- Assets (Music, Container, Slash)
+	- Title
+	- Singleton Music Player
+	- Game Over Menu
+	- Sword (Copied from Dungeonights), collision, slash, take damage on enemies
+	- Player Sprint (Add new input map), GUI
+	- GUI Stamina + Hitpoint
+	- Score Zoom
+	- Enemy Particle (Color, Shape, Initial Velocity, Scale)
+	- Enemy Speed Variation
+	- Enemy animation update (Spawn, Particle, Change kinematic to sprite)

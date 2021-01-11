@@ -24,7 +24,11 @@ func _ready():
 		_state_to_move()
 	else:
 		_state_to_idle()
+	
 	$Timer.start()
+	$CollisionShape2D.disabled = false
+	$CPUParticles2D.emitting = false
+	$AnimationPlayer.play("spawn")
 
 
 func _physics_process(delta):
@@ -46,8 +50,6 @@ func _physics_process(delta):
 		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
 	
 	var collision = move_and_collide(velocity * delta)
-	if collision and collision.collider.name == "Sword":
-		current_state = State.DEAD
 
 
 func _state_to_move():
@@ -82,3 +84,7 @@ func _on_Timer_timeout():
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "dead":
 		queue_free()
+
+
+func take_damage():
+	current_state = State.DEAD
