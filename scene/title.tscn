@@ -22,7 +22,7 @@ script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -145.146, -130.314 )
-scale = Vector2( 0.493991, 0.657826 )
+scale = Vector2( 0.5, 0.67 )
 texture = ExtResource( 1 )
 centered = false
 __meta__ = {
